@@ -2,18 +2,44 @@
 
 <head>
 	<meta charset="utf-8">
+	<title>Search Engine Selector</title>
+	<link rel = "stylesheet" type = "text/css" href = "styles.css" />
 	<script>
-		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
-    });
+		window.addEventListener("load", function(){
+			let actions = {
+				Google: "https://www.google.com/search",
+				DuckDuckGo: "https://duckduckgo.com/",
+				Bing: "https://www.bing.com/search",
+				Ask: "https://www.ask.com/web"
+			};
+	});
+
+	const searchform = document.getElementById("searchForm");
+	const selectEngine = document.querySelector('input[name=engine]:checked');
+	const action = actions[selectedEngine];
+	searchform.setAttribute('action', action);
+
+	function setSearchEngine() {
+		console.log("Testing");
+		}
+
+	searchform.addEventListener("submit", setSearchEngine);
+		//event.preventDefault();
+
 	</script>
 </head>
-
 <body>
-
-	<form id="searchForm">
+	<form method="GET" id="searchForm">
     <!-- TODO: add form elements -->
+	<div>
+		<input type="text" name="q" id="textinput"/>
+		<label>Google<input type="radio" name="engine" value="Google"/></label>
+		<label>DuckDuckGo<input type="radio" name="engine" value="DuckDuckGo"/></label>
+		<label>Bing<input type="radio" name="engine" value="Bing"/></label>
+		<label>Ask<input type="radio" name="engine" value="Ask"/></label>
+		<button>Go!</button>
+	</div>
 	</form>
-
 </body>
+</html>
+        
